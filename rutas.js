@@ -43,10 +43,10 @@ router.post('/',( req, res)=>{
 })
 
 //eliminar 
-router.delete('/:nombre_perro',(req, res)=>{
-    const{nombre_perro} = req.params
+router.delete('/:id',(req, res)=>{
+    const{id} = req.params
 
-    let sql =`delete from tb_perros where nombre_perro = '${nombre_perro}'`
+    let sql =`delete from tb_perros where id = '${id}'`
     conexion.query(sql, (err, rows, fields)=>{
         if(err) throw err
         else{
