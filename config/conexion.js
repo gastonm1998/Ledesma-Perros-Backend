@@ -17,3 +17,16 @@ conexion.connect((err)=>{
 });
 
 module.exports=conexion
+/*
+{
+    "nombre_perro":"prueba agregar",
+    "fecha_nacimiento_perro":"9/9/8888",
+    "lugar_nacimiento_perro":"post",
+    "raza_perro":"salchicha",
+    "color_perro":"negro",
+    "sexo_perro":"macho",
+    "pelaje_perro":"largo",
+    "tatuaje_perro":"dssfd324432",
+    "padre_perro":"padre1",
+    "madre_perro":"madre1"}
+    */

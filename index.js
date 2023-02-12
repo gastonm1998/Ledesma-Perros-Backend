@@ -6,7 +6,7 @@ const port = (process.env.port || 3000)
 const app = express()
 
 //admitir
-//app.use(express.json())
+app.use(express.json())
 
 //configurar
 app.set('port',port)
