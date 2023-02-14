@@ -28,6 +28,7 @@ module.exports=conexion
     "pelaje_perro":"largo",
     "tatuaje_perro":"dssfd324432",
     "padre_perro":"padre1",
-    "madre_perro":"madre1"}
-    
+    "madre_perro":"madre1",
+    "estado_perro":"En Celo"   }
+
     */

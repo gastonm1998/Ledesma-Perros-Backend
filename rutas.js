@@ -30,9 +30,9 @@ router.get('/:nombre_perro',(req, res)=>{
 
 //agregar equipo
 router.post('/',( req, res)=>{
-    const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro} = req.body
+    const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro} = req.body
 
-    let sql = `insert into tb_perros(nombre_perro, fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro) values('${nombre_perro}','${fecha_nacimiento_perro}','${lugar_nacimiento_perro}','${raza_perro}','${color_perro}','${sexo_perro}','${pelaje_perro}','${tatuaje_perro}','${padre_perro}','${madre_perro}')`
+    let sql = `insert into tb_perros(nombre_perro, fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro) values('${nombre_perro}','${fecha_nacimiento_perro}','${lugar_nacimiento_perro}','${raza_perro}','${color_perro}','${sexo_perro}','${pelaje_perro}','${tatuaje_perro}','${padre_perro}','${madre_perro}','${estado_perro}')`
 
     conexion.query(sql, (err, rows, fields)=>{
         if(err) throw err
@@ -58,7 +58,7 @@ router.delete('/:id',(req, res)=>{
 //modificar
 router.put('/:id',(req, res)=>{
     const{id}=req.params
-    const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro} = req.body
+    const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro} = req.body
 
     let sql = `update tb_perros set 
         nombre_perro ='${nombre_perro}',
@@ -70,7 +70,8 @@ router.put('/:id',(req, res)=>{
         pelaje_perro ='${pelaje_perro}',
         tatuaje_perro ='${tatuaje_perro}',
         padre_perro ='${padre_perro}',
-        madre_perro ='${madre_perro}'
+        madre_perro ='${madre_perro}',
+        estado_perro ='${estado_perro}'
                 where id = '${id}'`
     
     conexion.query(sql, (err, rows, fields)=>{
