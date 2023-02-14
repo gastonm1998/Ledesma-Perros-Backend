@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const conexion = mysql.createConnection({
+/*const conexion = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '123456789',
@@ -16,7 +16,7 @@ conexion.connect((err)=>{
     {console.log(' la base de datos se conecto!!!')}
 });
 
-module.exports=conexion
+module.exports=conexion*/
 /*
 {
     "nombre_perro":"prueba agregar",
@@ -32,3 +32,22 @@ module.exports=conexion
     "estado_perro":"En Celo"   }
 
     */
+
+    const conexion = mysql.createConnection({
+        host: 'aws-sa-east-1.connect.psdb.cloud',
+        user: 'utzvfzx64qwck7sx6h7k',
+        password: 'pscale_pw_BXwq1MVqxXi2OLX7U7YnceWTOPM3SVIwhmGr8PRi1hd',
+        port:'3306',
+        database: 'perros_db',
+        ssl:true
+    });
+    
+    conexion.connect((err)=>{
+        if(err){
+            console.log('ha ocurrido un error :'+ err)
+        }
+        else
+        {console.log(' la base de datos se conecto!!!')}
+    });
+    
+    module.exports=conexion
