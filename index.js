@@ -1,6 +1,9 @@
 require('./config/conexion');
 const express = require('express')
+const cors = require('cors')
 const port = (process.env.PORT || 3000)
+
+
 
 // express
 const app = express()
@@ -10,6 +13,9 @@ app.use(express.json())
 
 //configurar
 app.set('port',port)
+
+//cors
+app.use(cors())
 
 //rutas
 app.use('/api', require('./rutas'))
