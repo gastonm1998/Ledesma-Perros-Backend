@@ -96,7 +96,7 @@ const conexion = require('./config/conexion')
 //---------- agregamos rutas--------
 //get equipos
 router.get('/',(req, res)=>{
-    let sql ='select * from tb_perros_ps'
+    let sql ='select * from db_perros'
     conexion.query(sql,(err, rows, fields)=>{
         if(err) throw err;
         else{
@@ -109,7 +109,7 @@ router.get('/',(req, res)=>{
 // get un equipo
 router.get('/:nombre_perro',(req, res)=>{
     const {nombre_perro} = req.params
-    let sql ='select * from tb_perros_ps where nombre_perro = ?'
+    let sql ='select * from db_perros where nombre_perro = ?'
     conexion.query(sql,[nombre_perro],(err, rows, fields)=>{
         if(err) throw err;
         else{
@@ -122,7 +122,7 @@ router.get('/:nombre_perro',(req, res)=>{
 router.post('/',( req, res)=>{
     const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro} = req.body
 
-    let sql = `insert into tb_perros_ps(nombre_perro, fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro) values('${nombre_perro}','${fecha_nacimiento_perro}','${lugar_nacimiento_perro}','${raza_perro}','${color_perro}','${sexo_perro}','${pelaje_perro}','${tatuaje_perro}','${padre_perro}','${madre_perro}','${estado_perro}')`
+    let sql = `insert into db_perros(nombre_perro, fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro) values('${nombre_perro}','${fecha_nacimiento_perro}','${lugar_nacimiento_perro}','${raza_perro}','${color_perro}','${sexo_perro}','${pelaje_perro}','${tatuaje_perro}','${padre_perro}','${madre_perro}','${estado_perro}')`
 
     conexion.query(sql, (err, rows, fields)=>{
         if(err) throw err
@@ -136,7 +136,7 @@ router.post('/',( req, res)=>{
 router.delete('/:id',(req, res)=>{
     const{id} = req.params
 
-    let sql =`delete from tb_perros_ps where id = '${id}'`
+    let sql =`delete from db_perros where id = '${id}'`
     conexion.query(sql, (err, rows, fields)=>{
         if(err) throw err
         else{
@@ -150,7 +150,7 @@ router.put('/:id',(req, res)=>{
     const{id}=req.params
     const{nombre_perro,fecha_nacimiento_perro,lugar_nacimiento_perro,raza_perro,color_perro,sexo_perro,pelaje_perro,tatuaje_perro,padre_perro,madre_perro,estado_perro} = req.body
 
-    let sql = `update tb_perros_ps set 
+    let sql = `update db_perros set 
         nombre_perro ='${nombre_perro}',
         fecha_nacimiento_perro='${fecha_nacimiento_perro}',
         lugar_nacimiento_perro ='${lugar_nacimiento_perro}',
