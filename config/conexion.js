@@ -32,13 +32,23 @@ module.exports=conexion*/
     "estado_perro":"En Celo"   }
 
     */
-
+/*
     const conexion = mysql.createConnection({
         host: 'aws-sa-east-1.connect.psdb.cloud',
         user: 'utzvfzx64qwck7sx6h7k',
         password: 'pscale_pw_BXwq1MVqxXi2OLX7U7YnceWTOPM3SVIwhmGr8PRi1hd',
         port:'3306',
         database: 'perros_db',
+        ssl:true
+    });
+*/
+
+    const conexion = mysql.createConnection({
+        host: 'byuwhiueol3pczmlzrdj-mysql.services.clever-cloud.com',
+        user: 'u7diaekss3jv3g6t',
+        password: 'OtJybgGAv97keE6RxYcL',
+        port:'3306',
+        database: 'byuwhiueol3pczmlzrdj',
         ssl:true
     });
     
